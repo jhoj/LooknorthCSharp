@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="looknorthModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="machine">
+    <Key>
+      <PropertyRef Name="m_id" />
+    </Key>
+    <Property Name="m_id" Type="Int32" Nullable="false" />
+    <Property Name="installation" Type="DateTime" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="oil_usage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="s_id" Type="Int32" Nullable="false" />
+    <Property Name="liters" Type="Int32" />
+    <Property Name="recorded" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="production">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="m_id" Type="Int32" Nullable="false" />
+    <Property Name="p_id" Type="Int32" Nullable="false" />
+    <Property Name="recorded" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="products_active">
+    <Key>
+      <PropertyRef Name="m_id" />
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="m_id" Type="Int32" Nullable="false" />
+    <Property Name="p_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="looknorthEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="machines" EntityType="Self.machine" />
+    <EntitySet Name="oil_usage" EntityType="Self.oil_usage" />
+    <EntitySet Name="productions" EntityType="Self.production" />
+    <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="products_active" EntityType="Self.products_active" />
+  </EntityContainer>
+</Schema>

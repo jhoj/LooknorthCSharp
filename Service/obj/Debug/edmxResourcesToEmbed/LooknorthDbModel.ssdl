@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="looknorthModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="machines">
+    <Key>
+      <PropertyRef Name="m_id" />
+    </Key>
+    <Property Name="m_id" Type="int" Nullable="false" />
+    <Property Name="installation" Type="date" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="oil_usage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="m_id" Type="int" Nullable="false" />
+    <Property Name="liters" Type="float" />
+    <Property Name="recorded" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="production">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="m_id" Type="int" Nullable="false" />
+    <Property Name="p_id" Type="int" Nullable="false" />
+    <Property Name="recorded" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="int" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="products_active">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="m_id" Type="int" Nullable="false" />
+    <Property Name="p_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="oil_usage_ibfk_1">
+    <End Role="machines" Type="Self.machines" Multiplicity="1" />
+    <End Role="oil_usage" Type="Self.oil_usage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="machines">
+        <PropertyRef Name="m_id" />
+      </Principal>
+      <Dependent Role="oil_usage">
+        <PropertyRef Name="m_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="production_ibfk_1">
+    <End Role="products" Type="Self.products" Multiplicity="1" />
+    <End Role="production" Type="Self.production" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="production">
+        <PropertyRef Name="p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="production_ibfk_2">
+    <End Role="machines" Type="Self.machines" Multiplicity="1" />
+    <End Role="production" Type="Self.production" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="machines">
+        <PropertyRef Name="m_id" />
+      </Principal>
+      <Dependent Role="production">
+        <PropertyRef Name="m_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="products_active_ibfk_1">
+    <End Role="products" Type="Self.products" Multiplicity="1" />
+    <End Role="products_active" Type="Self.products_active" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="products_active">
+        <PropertyRef Name="p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="products_active_ibfk_2">
+    <End Role="machines" Type="Self.machines" Multiplicity="1" />
+    <End Role="products_active" Type="Self.products_active" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="machines">
+        <PropertyRef Name="m_id" />
+      </Principal>
+      <Dependent Role="products_active">
+        <PropertyRef Name="m_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="looknorthModelStoreContainer">
+    <EntitySet Name="machines" EntityType="Self.machines" Schema="looknorth" store:Type="Tables" />
+    <EntitySet Name="oil_usage" EntityType="Self.oil_usage" Schema="looknorth" store:Type="Tables" />
+    <EntitySet Name="production" EntityType="Self.production" Schema="looknorth" store:Type="Tables" />
+    <EntitySet Name="products" EntityType="Self.products" Schema="looknorth" store:Type="Tables" />
+    <EntitySet Name="products_active" EntityType="Self.products_active" Schema="looknorth" store:Type="Tables" />
+    <AssociationSet Name="oil_usage_ibfk_1" Association="Self.oil_usage_ibfk_1">
+      <End Role="machines" EntitySet="machines" />
+      <End Role="oil_usage" EntitySet="oil_usage" />
+    </AssociationSet>
+    <AssociationSet Name="production_ibfk_1" Association="Self.production_ibfk_1">
+      <End Role="products" EntitySet="products" />
+      <End Role="production" EntitySet="production" />
+    </AssociationSet>
+    <AssociationSet Name="production_ibfk_2" Association="Self.production_ibfk_2">
+      <End Role="machines" EntitySet="machines" />
+      <End Role="production" EntitySet="production" />
+    </AssociationSet>
+    <AssociationSet Name="products_active_ibfk_1" Association="Self.products_active_ibfk_1">
+      <End Role="products" EntitySet="products" />
+      <End Role="products_active" EntitySet="products_active" />
+    </AssociationSet>
+    <AssociationSet Name="products_active_ibfk_2" Association="Self.products_active_ibfk_2">
+      <End Role="machines" EntitySet="machines" />
+      <End Role="products_active" EntitySet="products_active" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

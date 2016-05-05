@@ -1,0 +1,8 @@
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Client\bin\Debug\Client.exe.config
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Client\bin\Debug\Client.exe
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Client\bin\Debug\Client.pdb
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Client\obj\Debug\Client.exe
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Client\obj\Debug\Client.pdb
+C:\Users\Jakup\documents\visual studio 2015\Projects\Looknorth\Client\bin\Debug\Interfaces.dll
+C:\Users\Jakup\documents\visual studio 2015\Projects\Looknorth\Client\bin\Debug\Interfaces.pdb

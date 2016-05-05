@@ -1,0 +1,1 @@
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Server\bin\Debug\Server.exe.config

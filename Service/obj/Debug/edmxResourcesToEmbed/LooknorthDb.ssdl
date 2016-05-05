@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="looknorthModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="machines">
+    <Key>
+      <PropertyRef Name="m_id" />
+    </Key>
+    <Property Name="m_id" Type="int" Nullable="false" />
+    <Property Name="installation" Type="date" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="oil_usage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="s_id" Type="int" Nullable="false" />
+    <Property Name="liters" Type="int" />
+    <Property Name="recorded" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="production">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="m_id" Type="int" Nullable="false" />
+    <Property Name="p_id" Type="int" Nullable="false" />
+    <Property Name="recorded" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="int" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.looknorth.products_active' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="products_active">
+    <Key>
+      <PropertyRef Name="m_id" />
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="m_id" Type="int" Nullable="false" />
+    <Property Name="p_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="looknorthModelStoreContainer">
+    <EntitySet Name="machines" EntityType="Self.machines" Schema="looknorth" store:Type="Tables" />
+    <EntitySet Name="oil_usage" EntityType="Self.oil_usage" Schema="looknorth" store:Type="Tables" />
+    <EntitySet Name="production" EntityType="Self.production" Schema="looknorth" store:Type="Tables" />
+    <EntitySet Name="products" EntityType="Self.products" Schema="looknorth" store:Type="Tables" />
+    <EntitySet Name="products_active" EntityType="Self.products_active" store:Type="Tables" store:Schema="looknorth">
+      <DefiningQuery>SELECT
+`products_active`.`m_id`, 
+`products_active`.`p_id`
+FROM `products_active` AS `products_active`</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

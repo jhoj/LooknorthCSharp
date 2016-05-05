@@ -1,0 +1,4 @@
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\bin\Debug\Interfaces.dll
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\bin\Debug\Interfaces.pdb
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\obj\Debug\Interfaces.dll
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\obj\Debug\Interfaces.pdb

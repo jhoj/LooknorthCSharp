@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="looknorthModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="machine">
+    <Key>
+      <PropertyRef Name="m_id" />
+    </Key>
+    <Property Name="m_id" Type="Int32" Nullable="false" />
+    <Property Name="installation" Type="DateTime" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="oil_usage" Relationship="Self.oil_usage_ibfk_1" FromRole="machines" ToRole="oil_usage" />
+    <NavigationProperty Name="productions" Relationship="Self.production_ibfk_2" FromRole="machines" ToRole="production" />
+    <NavigationProperty Name="products_active" Relationship="Self.products_active_ibfk_2" FromRole="machines" ToRole="products_active" />
+  </EntityType>
+  <EntityType Name="oil_usage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="m_id" Type="Int32" Nullable="false" />
+    <Property Name="liters" Type="Single" />
+    <Property Name="recorded" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="machine" Relationship="Self.oil_usage_ibfk_1" FromRole="oil_usage" ToRole="machines" />
+  </EntityType>
+  <EntityType Name="production">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="m_id" Type="Int32" Nullable="false" />
+    <Property Name="p_id" Type="Int32" Nullable="false" />
+    <Property Name="recorded" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="machine" Relationship="Self.production_ibfk_2" FromRole="production" ToRole="machines" />
+    <NavigationProperty Name="product" Relationship="Self.production_ibfk_1" FromRole="production" ToRole="products" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="productions" Relationship="Self.production_ibfk_1" FromRole="products" ToRole="production" />
+    <NavigationProperty Name="products_active" Relationship="Self.products_active_ibfk_1" FromRole="products" ToRole="products_active" />
+  </EntityType>
+  <EntityType Name="products_active">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="m_id" Type="Int32" Nullable="false" />
+    <Property Name="p_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="machine" Relationship="Self.products_active_ibfk_2" FromRole="products_active" ToRole="machines" />
+    <NavigationProperty Name="product" Relationship="Self.products_active_ibfk_1" FromRole="products_active" ToRole="products" />
+  </EntityType>
+  <Association Name="oil_usage_ibfk_1">
+    <End Role="machines" Type="Self.machine" Multiplicity="1" />
+    <End Role="oil_usage" Type="Self.oil_usage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="machines">
+        <PropertyRef Name="m_id" />
+      </Principal>
+      <Dependent Role="oil_usage">
+        <PropertyRef Name="m_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="production_ibfk_2">
+    <End Role="machines" Type="Self.machine" Multiplicity="1" />
+    <End Role="production" Type="Self.production" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="machines">
+        <PropertyRef Name="m_id" />
+      </Principal>
+      <Dependent Role="production">
+        <PropertyRef Name="m_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="products_active_ibfk_2">
+    <End Role="machines" Type="Self.machine" Multiplicity="1" />
+    <End Role="products_active" Type="Self.products_active" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="machines">
+        <PropertyRef Name="m_id" />
+      </Principal>
+      <Dependent Role="products_active">
+        <PropertyRef Name="m_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="production_ibfk_1">
+    <End Role="products" Type="Self.product" Multiplicity="1" />
+    <End Role="production" Type="Self.production" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="production">
+        <PropertyRef Name="p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="products_active_ibfk_1">
+    <End Role="products" Type="Self.product" Multiplicity="1" />
+    <End Role="products_active" Type="Self.products_active" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="products_active">
+        <PropertyRef Name="p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="looknorthEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="machines" EntityType="Self.machine" />
+    <EntitySet Name="oil_usage" EntityType="Self.oil_usage" />
+    <EntitySet Name="productions" EntityType="Self.production" />
+    <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="products_active" EntityType="Self.products_active" />
+    <AssociationSet Name="oil_usage_ibfk_1" Association="Self.oil_usage_ibfk_1">
+      <End Role="machines" EntitySet="machines" />
+      <End Role="oil_usage" EntitySet="oil_usage" />
+    </AssociationSet>
+    <AssociationSet Name="production_ibfk_2" Association="Self.production_ibfk_2">
+      <End Role="machines" EntitySet="machines" />
+      <End Role="production" EntitySet="productions" />
+    </AssociationSet>
+    <AssociationSet Name="products_active_ibfk_2" Association="Self.products_active_ibfk_2">
+      <End Role="machines" EntitySet="machines" />
+      <End Role="products_active" EntitySet="products_active" />
+    </AssociationSet>
+    <AssociationSet Name="production_ibfk_1" Association="Self.production_ibfk_1">
+      <End Role="products" EntitySet="products" />
+      <End Role="production" EntitySet="productions" />
+    </AssociationSet>
+    <AssociationSet Name="products_active_ibfk_1" Association="Self.products_active_ibfk_1">
+      <End Role="products" EntitySet="products" />
+      <End Role="products_active" EntitySet="products_active" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

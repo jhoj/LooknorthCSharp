@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="looknorthModelStoreContainer" CdmEntityContainer="looknorthEntities1">
+    <EntitySetMapping Name="machines">
+      <EntityTypeMapping TypeName="looknorthModel.machine">
+        <MappingFragment StoreEntitySet="machines">
+          <ScalarProperty Name="m_id" ColumnName="m_id" />
+          <ScalarProperty Name="installation" ColumnName="installation" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oil_usage">
+      <EntityTypeMapping TypeName="looknorthModel.oil_usage">
+        <MappingFragment StoreEntitySet="oil_usage">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="m_id" ColumnName="m_id" />
+          <ScalarProperty Name="liters" ColumnName="liters" />
+          <ScalarProperty Name="recorded" ColumnName="recorded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productions">
+      <EntityTypeMapping TypeName="looknorthModel.production">
+        <MappingFragment StoreEntitySet="production">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="m_id" ColumnName="m_id" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="recorded" ColumnName="recorded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="looknorthModel.product">
+        <MappingFragment StoreEntitySet="products">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products_active">
+      <EntityTypeMapping TypeName="looknorthModel.products_active">
+        <MappingFragment StoreEntitySet="products_active">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="m_id" ColumnName="m_id" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

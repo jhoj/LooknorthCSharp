@@ -1,0 +1,10 @@
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Service\bin\Debug\Service.exe.config
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Service\bin\Debug\Service.exe
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Service\bin\Debug\Service.pdb
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Service\bin\Debug\EntityFramework.dll
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Service\bin\Debug\Interfaces.dll
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Service\bin\Debug\Interfaces.pdb
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Service\bin\Debug\EntityFramework.xml
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Service\obj\Debug\Service.exe
+c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Service\obj\Debug\Service.pdb
