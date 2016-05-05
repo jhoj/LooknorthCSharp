@@ -1,4 +1,7 @@
-c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\bin\Debug\Interfaces.dll
-c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\bin\Debug\Interfaces.pdb
-c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\obj\Debug\Interfaces.dll
-c:\users\jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\obj\Debug\Interfaces.pdb
+C:\Users\Jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\bin\Debug\Interfaces.dll
+C:\Users\Jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\bin\Debug\Interfaces.pdb
+C:\Users\Jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\bin\Debug\System.Net.Http.dll
+C:\Users\Jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\bin\Debug\System.Net.Http.xml
+C:\Users\Jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\obj\Debug\Interfaces.csprojResolveAssemblyReference.cache
+C:\Users\Jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\obj\Debug\Interfaces.dll
+C:\Users\Jakup\documents\visual studio 2015\Projects\Looknorth\Interfaces\obj\Debug\Interfaces.pdb
